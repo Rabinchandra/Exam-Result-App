@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exam Result App</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="navbar shadow p-3 bg-warning mb-0">
+        <div class="tribar">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+    </div>
+
+    <!-- Welcome Section -->
+    <div class="table-container">
+      <div class="jumbotron text-center">
+          <h2>Welcome to Exam Result App</h2>
+          <span class="lead">You can make it better.</span><br>
+          <button class="btn btn-primary mt-3" data-target="#createFileModal" data-toggle="modal">Create</button>
+      </div>
+        <!-- Table -->
+    </div>
+    <div class="fixed-bottom p-3 d-none">
+      <button class="btn btn-primary float-left delete mr-2" data-target="#deleteStudentModal" data-toggle="modal">Delete Student</button>
+        <button class="btn btn-primary float-left sort" data-target="#sortModal" data-toggle="modal">Sort</button>
+        <button class="btn btn-primary float-right add-student" data-target="#addStudentModal" data-toggle="modal">Add Student</button>
+    </div>
+    <!-- overlay -->
+    <div class="overlay"></div>
+    <!-- Side bar -->
+    <div class="sidebar sidebar-off">
+        <!-- <div class="sidebar-back p-2"><i class="fas fa-arrow-left"></i></div> -->
+        <!-- <div class="sidebar-back p-2" style="font-size: 2em">&times;</div> -->
+        <!-- File List container -->
+        <ul class="list-unstyled text-center lead file-list-container p-2 mt-3">
+        <!-- File list will be shown here -->
+        </ul>
+        <!-- Delete file and add file btn container -->
+        <div class="file-btn p-2">
+            <!-- <i class="fas fa-folder-plus" data-target="#createFileModal" data-toggle="modal"></i>
+            <i class="fas fa-trash-alt float-right del-btn"></i> -->
+            <button class="btn btn-primary" data-target="#createFileModal" data-toggle="modal">Add File</button>
+            <button class="btn btn-primary float-right del-btn" >Delete File</button>
+        </div>
+        <div class="clearfix"></div>
+        <hr>
+        <!-- About and contact li container -->
+        <ul class="list-unstyled text-center lead">
+            <li class="p-2">
+                <a href="developer.html"><i class="fas fa-user-circle"></i> Developer</a>
+            <li>
+            <li class="p-2">
+                <a href="contact.html"><i class="fas fa-address-book"></i> Contact</a>
+            </li>
+        </ul>
+
+    </div>
+
+    <!-- Modal Box for Creating new file -->
+    <div class="modal fade" id="createFileModal" tabindex="-1" role="dialog" aria-labelledby="createFileModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="createFileModal">Create a new file</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="create-file-alert"></div>
+          <div class="form-group">
+              <!-- Subject No -->
+              Enter the no. of Subjects:
+              <input type="number" class="form-control subj-num" min="1">
+              <button class="btn btn-success mt-2 subj-num-ok">OK</button>
+          </div>
+          <div class="mb-3 text-dark">
+            <small>
+              <strong>Note:</strong><br>
+              Name is name of the subject. FM is Full mark and PM is Pass Mark.
+            </small>
+          </div>
+          <!-- Subjects input-->
+          <div class="subjects-container container">
+            <!-- Input fields will be added here -->
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-warning createFileBtn">Create file</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--  -->
+
+  <!-- Add Student Modal Box -->
+  <div class="modal fade" id="addStudentModal" tabindex="-1" role="dialog" aria-labelledby="addStudentModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addStudentModal">ADD STUDENT</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-warning modal-add-student-btn">Add Student</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sort Modal Box -->
+  <div class="modal fade" id="sortModal" tabindex="-1" role="dialog" aria-labelledby="sortModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="sortModal"></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="sort-alert"></div>
+          <div class="form-group">
+            <span class="lead">Please select an option:</span>
+            <select id="sort-select" class="form-control mt-3 mb-3">
+              <option value="roll">Sort by Roll No.</option>
+              <option value="pc">Sort by Total Mark/PC</option>
+            </select>
+            <label for="sorted-name" class="lead">Enter the sorted file name: </label>
+            <input type="text" class="form-control sorted-file-name">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-warning modal-sort-btn">Sort</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Delete Student Modal Box -->
+  <div class="modal fade" id="deleteStudentModal" tabindex="-1" role="dialog" aria-labelledby="deleteStudentModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="deleteStudentModal">Delete a student</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="lead mb-3">
+            <strong>Note:</strong>
+            Please fill up any one of these input forms
+          </div>
+          <div class="alert-delete-student"></div>
+          <div class="form-group">
+            <label for="delete-roll">
+              Roll No.
+            </label>
+            <input type="number" id="delete-roll" class="form-control" min="0">
+            <hr>
+            <label for="delete-name">
+              Name:
+            </label>
+            <input type="text" id="delete-name" class="form-control">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-danger modal-delete-student-btn">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- JS Files -->
+  <script src="file_class.js"></script>
+  <script src="bar.js"></script>
+  <script src="app.js"></script>
+  <script src="load_files.js"></script>
+  <script src="all.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/f33a1483e3.js" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

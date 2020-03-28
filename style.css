@@ -1,0 +1,114 @@
+
+
+a {
+    text-decoration: none !important;
+}
+
+
+.tribar {
+    width: 50px;
+    cursor: pointer;
+}
+
+
+.line {
+    height: 5px;
+    background: rgb(73, 73, 73);
+    margin-top: 5px;
+}
+
+.fixed-bottom {
+    box-shadow: 0px 0px 10px 10px rgba(48, 48, 48, 0.1);
+    background: #ffffff;
+    z-index: 1;
+    /* display: none; */
+}
+
+.overlay {
+    height: 100vh;
+    z-index: 3;
+    background: rgba(0,0,0,0.5);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: none;
+    opacity: 0;
+    transition-property: opacity;
+    transition-duration: .5s;
+}
+
+.sidebar {
+    background: #ffffff;
+    height: 100vh;
+    width: 50%;
+    min-width: 250px;
+    position: fixed;
+    overflow: hidden;
+    top: 0;
+    z-index: 3;
+    box-shadow: 0px 0px 30px 10px rgba(0,0,0,.3);
+    transition-property: margin-left;
+    transition-duration: .6s;
+    overflow: scroll;
+    /* transition-timing-function: ease-in; */
+}
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+
+.sidebar-on {
+    margin-left: 0%;
+}
+
+.sidebar-off {
+    margin-left: -100%;
+}
+
+.sidebar ul li {
+    transition-property: font-size;
+    transition-duration: .4s;
+    cursor: pointer;
+    padding: 6px;
+}
+
+.sidebar ul li:hover {
+    font-size: 2rem;
+}
+
+.file-btn i {
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.file-btn .fa-folder-plus:hover {
+    color: rgb(36, 141, 182);
+}
+
+.file-btn .fa-trash-alt:hover {
+    color: red;
+}
+
+.sidebar-back {
+    cursor: pointer;
+    font-size: 1.3rem;
+    color: rgb(48, 48, 48);
+}
+
+.sidebar-back i:hover {
+    color: black;
+}
+
+.developer-container {
+  text-align: center;
+}
+
+.developer-container img {
+  height: 200px;
+}
+
+@media screen and (max-width: 900px) {
+    .sub-col {
+      display: none;
+    }
+}
